@@ -7,7 +7,7 @@ parse DDBC address data to csv
 
 1. Read DDBC html file by browser. 2. CtrlA to get all the data. 3. copy and paste that data to input.txt
 
-# Step 2, please detele the paragraphs at the top of the page, Ex:
+# Step 2, detele the paragraphs at the top of the page
 
 *Z碼系統使用GRS67經緯度座標系統，與GPS或Google Earth使用WGS84經緯度座標系統略有不同，有需要可利用「Web版坐標轉換程式」進行座標轉換
 
