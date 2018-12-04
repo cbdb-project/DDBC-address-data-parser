@@ -38,7 +38,7 @@ def removeContentFromRemoveList(data):
 
 def reFormCrosslineData(data):
 # work on 别名
-    data = re.sub("別名：\n", "Occurs in：", data)
+    data = re.sub(r"別名：\n", r"別名：", data)
 # work on occurs in
     data = re.sub(r"\n([a-zA-Z]\d)", r";\1", data)
     data = re.sub(r"Occurs in：;", r"Occurs in：", data)
