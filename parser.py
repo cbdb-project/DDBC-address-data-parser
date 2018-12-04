@@ -24,8 +24,10 @@ globalFieldName["OccursIn"] = "Occurs in"
 globalFieldNameOrder = [globalFieldName["ID"], globalFieldName["oldID"], globalFieldName["classification"], globalFieldName["x"], globalFieldName["y"], globalFieldName["belongs"], globalFieldName["currentBelongs"], globalFieldName["notes"], globalFieldName["dynasty"], globalFieldName["altname"], globalFieldName["anno"], globalFieldName["OccursIn"]]
 
 globalRemoveList = [r"\(僅供參考請勿使用\)", r"\(精確值\)  download KML   Map", r"Feedback"]
+
 # The regular expression for x and y
 coordRE = r"緯度：(\d+\.\d+)經度：(\d+\.\d+)"
+
 # If the line end by "引用網址", it means that this is the address name of this entry
 addrNameSymbol = "引用網址"
 
@@ -80,7 +82,6 @@ def parseToDic(inputDataList):
                 outputIndex = ""
                 tempList =[""]*len(globalFieldName)
                 tempList[0] = addrName
-
 # Use ：to seperate title and content
         currentInputDataListSplit = i.split("：")
 # If there is at least one ：
@@ -97,8 +98,6 @@ def parseToDic(inputDataList):
                 tempList[globalFieldNameOrder.index(globalFieldName["y"])] = y.strip()
             else:
                 tempList[globalFieldNameOrder.index(currentTitle)] = currentContent.strip()
-
-
     return output
 
 def writeFile(dataDic, fileName):
