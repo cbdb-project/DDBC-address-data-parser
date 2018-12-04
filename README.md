@@ -3,7 +3,7 @@
 parse DDBC address data to csv
 
 
-**Step 1, create input.txt:**
+**Step 1, create input.txt**
 
 1. Read DDBC html file by browser. 2. CtrlA to get all the data. 3. copy and paste that data to input.txt
 
