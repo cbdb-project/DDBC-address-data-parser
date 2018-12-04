@@ -12,9 +12,12 @@ globalFieldName["belongs"] = "屬"
 globalFieldName["currentBelongs"] = "行政區"
 globalFieldName["notes"] = "備註"
 globalFieldName["dynasty"] = "朝代"
+# The content of "別名" was in next line, so we have to remove the \n after "別名："
 globalFieldName["altname"] = "別名"
 globalFieldName["anno"] = "註解"
 # The content of "Occurs in：" was in next line, so we have to remove the \n after "Occurs in："
+# The bad news is that there might be multiple lines which belong to a single "Occurs in：". This
+# problem was solved by data = re.sub(r"\n([a-zA-Z]\d)", r";\1", data) in reFormCrosslineData
 globalFieldName["OccursIn"] = "Occurs in"
 
 # Define the output field order here
@@ -90,12 +93,9 @@ def parseToDic(inputDataList):
 # Seperate x and y to differnt cells
             elif currentTitle =="經緯度":
                 y, x = re.findall(coordRE, currentContent)[0]
-                # tempList.append(x.strip())
-                # tempList.append(y.strip())
                 tempList[globalFieldNameOrder.index(globalFieldName["x"])] = x.strip()
                 tempList[globalFieldNameOrder.index(globalFieldName["y"])] = y.strip()
             else:
-                #tempList.append(currentContent.strip())
                 tempList[globalFieldNameOrder.index(currentTitle)] = currentContent.strip()
 
 
