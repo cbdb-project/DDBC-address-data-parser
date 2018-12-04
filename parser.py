@@ -99,8 +99,9 @@ def parseToDic(inputDataList):
             else:
                 tempList[globalFieldNameOrder.index(currentTitle)] = currentContent.strip()
 # Save the last reocrd
-    output[outputIndex] = tempList
-    return output
+    if outputIndex!="":
+        output[outputIndex] = tempList
+        return output
 
 def writeFile(dataDic, fileName):
     output = []
