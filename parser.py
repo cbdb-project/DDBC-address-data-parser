@@ -38,10 +38,10 @@ def removeContentFromRemoveList(data):
 
 def reFormCrosslineData(data):
 # work on 别名
-    data = re.sub(r"別名：\n", r"別名：", data)
+    data = re.sub(r"%s：\n"%(globalFieldName["altname"]), r"%s："%(globalFieldName["altname"]), data)
 # work on occurs in
     data = re.sub(r"\n([a-zA-Z]\d)", r";\1", data)
-    data = re.sub(r"Occurs in：;", r"Occurs in：", data)
+    data = re.sub(r"%s：;"%(globalFieldName["OccursIn"]), r"%s："%(globalFieldName["OccursIn"]), data)
     return data
     
 def readfile(fileName):
@@ -92,7 +92,7 @@ def parseToDic(inputDataList):
             if currentTitle == globalFieldName["ID"]:
                 outputIndex = currentContent.strip()
 # Seperate x and y to differnt cells
-            elif currentTitle =="經緯度":
+            elif currentTitle == globalFieldName["coord"]:
                 y, x = re.findall(coordRE, currentContent)[0]
                 tempList[globalFieldNameOrder.index(globalFieldName["x"])] = x.strip()
                 tempList[globalFieldNameOrder.index(globalFieldName["y"])] = y.strip()
